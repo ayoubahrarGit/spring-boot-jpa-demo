@@ -5,5 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.ensat.demo.entities.Produit;
 
 public interface ProduitRepository extends CrudRepository<Produit, Integer> {
-
+	
+	public Produit findByName(String name);
+	
 }

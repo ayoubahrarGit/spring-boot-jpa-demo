@@ -12,8 +12,11 @@ import javax.persistence.*;
 @NamedQuery(name="Stock.findAll", query="SELECT s FROM Stock s")
 public class Stock implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int idstock;
+
 	private int quantite;
 
 	//bi-directional many-to-one association to Entrepot
@@ -27,6 +30,14 @@ public class Stock implements Serializable {
 	private Produit produit;
 
 	public Stock() {
+	}
+
+	public int getIdstock() {
+		return this.idstock;
+	}
+
+	public void setIdstock(int idstock) {
+		this.idstock = idstock;
 	}
 
 	public int getQuantite() {

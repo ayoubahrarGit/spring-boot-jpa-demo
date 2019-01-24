@@ -18,8 +18,6 @@ public class CategorieService implements ICrudService<Categorie> {
 		this.categorieRepository = categorieRepository;
 	}
 
-	
-	
 	@Override
 	public void save(Categorie entity) {
 		categorieRepository.save(entity);

@@ -13,9 +13,7 @@ import com.ensat.demo.repositories.ProduitRepository;
 @Service
 public class ProduitService implements ICrudService<Produit>{
 	
-	@Autowired
 	private ProduitRepository produitRepository;
-	
 	
 	@Autowired
 	public void setProduitRepository(ProduitRepository productRepository) {
@@ -39,7 +37,6 @@ public class ProduitService implements ICrudService<Produit>{
 		return produitRepository.findById(id);
 	}
 
-	@Override
 	public Optional<Produit> find(String name) {
 		return produitRepository.findByName(name);
 	}

@@ -33,7 +33,6 @@ public class CategorieService implements ICrudService<Categorie> {
 		return categorieRepository.findById(id);
 	}
 
-	@Override
 	public Optional<Categorie> find(String name) {
 		return categorieRepository.findByName(name);
 	}

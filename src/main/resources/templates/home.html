@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-layout-decorate="~{fragments/layout}">
+<html xmlns:th="http://www.thymeleaf.org" data-layout-decorate="~{fragments/layout}">
 <head>
   <title>AdminLTE 2 | Starter</title>
 </head>
@@ -8,7 +8,71 @@
 
     <section class="content container-fluid" data-layout-fragment="content">
 
-      page content
+
+      <h1 class="page-title">Dashboard</h1>
+   	  
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3 th:text="${produits}">0</h3>
+
+              <p>Produits</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 th:text="${stock}">0</h3>
+
+              <p>Articles en stock</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3 th:text="${categories}">0</h3>
+
+              <p>Catégories</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3 th:text="${entrepots}">0</h3>
+
+              <p>Entrepots</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
 
     </section>
 

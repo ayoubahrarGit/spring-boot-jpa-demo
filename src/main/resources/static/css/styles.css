@@ -1,0 +1,9 @@
+.page-title{
+    margin: 0;
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+.inline-table-form{
+	display: inline-table;
+}

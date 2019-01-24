@@ -29,12 +29,14 @@ public class CategorieController {
 		return "categorie/index";
 	}
 	@GetMapping("/categories/add")
-	public String categorieAdd(){
+	public String categorieAdd(Model model){
+		model.addAttribute("categorie", new Categorie());
 		return "categorie/form";
 	}
 	
 	@PostMapping("categories/save")
 	public String addCategorie(Categorie categorie){
+		// TODO : check if name exists
 		categorieService.save(categorie);
 		return "redirect:/categories";
 	}
@@ -50,7 +52,9 @@ public class CategorieController {
 	}
 	@DeleteMapping("/categories/delete/{name}")
 	public String deleteCategorie(@PathVariable String name){
-		categorieService.delete(categorieService.find("name").get());
-		return "categorie/index";
+		// TODO : check if it's a parent row => delete child rows
+		System.err.println(name);
+		categorieService.delete(categorieService.find(name).get());
+		return "redirect:/categories";
 	}
 }

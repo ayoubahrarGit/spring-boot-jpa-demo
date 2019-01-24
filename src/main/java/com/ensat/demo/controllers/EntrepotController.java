@@ -27,7 +27,8 @@ public class EntrepotController {
 		return "entrepot/index";
 	}
 	@GetMapping("/entrepots/add")
-	public String entrepotAdd(){
+	public String entrepotAdd(Model model){
+		model.addAttribute("entrepot", new Entrepot());
 		return "entrepot/form";
 	}
 	
@@ -48,7 +49,7 @@ public class EntrepotController {
 	}
 	@DeleteMapping("/entrepots/delete/{name}")
 	public String deleteEntrepot(@PathVariable String name){
-		entreportService.delete(entreportService.find("name").get());
-		return "entrepot/index";
+		entreportService.delete(entreportService.find(name).get());
+		return "redirect:/entrepots";
 	}
 }

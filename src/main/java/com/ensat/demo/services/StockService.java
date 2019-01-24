@@ -33,12 +33,6 @@ public class StockService implements ICrudService<Stock> {
 	}
 
 	@Override
-	public Optional<Stock> find(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Iterable<Stock> all() {
 		return stockRepository.findAll();
 	}

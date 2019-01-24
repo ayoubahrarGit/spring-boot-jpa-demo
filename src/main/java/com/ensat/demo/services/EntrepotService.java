@@ -34,7 +34,6 @@ public class EntrepotService implements ICrudService<Entrepot> {
 		return entrepotRepository.findById(id);
 	}
 
-	@Override
 	public Optional<Entrepot> find(String name) {
 		return entrepotRepository.findByName(name);
 	}

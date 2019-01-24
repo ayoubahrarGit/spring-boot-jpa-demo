@@ -10,13 +10,13 @@
 
    		<div class="box">
 		  <div class="box-header with-border">
-		    <h3 class="box-title">Categorie</h3>
+		    <h3 class="box-title">Entrepôt</h3>
 		  </div>
 		  <!-- /.box-header -->
-		  <form class="form-horizontal" th:object="${categorie}" th:action="@{/categories/save}" method="post">
+		  <form class="form-horizontal" th:object="${entrepot}" th:action="@{/entrepots/save}" method="post">
 		  		<div class="box-body">
 				
-		            <input type="hidden" th:field="*{idcategorie}"/>
+		            <input type="hidden" th:field="*{identrepot}"/>
 		            
 		            <div class="form-group">
 		                <label class="col-sm-2 control-label">Name</label>
@@ -25,15 +25,9 @@
 		                </div>
 		            </div>
 		            <div class="form-group">
-		                <label class="col-sm-2 control-label">Label</label>
+		                <label class="col-sm-2 control-label">Ville</label>
 		                <div class="col-sm-10">
-		                    <input type="text" class="form-control" th:field="*{label}"/>
-		                </div>
-		            </div>
-		            <div class="form-group">
-		                <label class="col-sm-2 control-label">Description</label>
-		                <div class="col-sm-10">
-		                    <input type="text" class="form-control" th:field="*{description}"/>
+		                    <input type="text" class="form-control" th:field="*{ville}"/>
 		                </div>
 		            </div>
 		            

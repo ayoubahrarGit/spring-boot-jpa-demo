@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.ensat.demo.entities.Categorie;
 import com.ensat.demo.services.CategorieService;
 
+
+
 @Controller
 public class CategorieController {
 	
@@ -38,18 +40,17 @@ public class CategorieController {
 	}
 	@GetMapping("/categories/update/{name}")
 	public String updateCategorie(@PathVariable String name ,Model model){
-		model.addAttribute("categorie",categorieService.find(name));
+		model.addAttribute("categorie",categorieService.find(name).get());
 		return "categorie/form";
 	}
 	@GetMapping("/categories/detail/{name}")
 	public String detailCategorie(Model model,@PathVariable String name){
-		model.addAttribute("categorie",categorieService.find(name));
+		model.addAttribute("categorie",categorieService.find(name).get());
 		return "categorie/view";
 	}
-	@DeleteMapping
+	@DeleteMapping("/categories/delete/{name}")
 	public String deleteCategorie(@PathVariable String name){
 		categorieService.delete(categorieService.find("name").get());
 		return "categorie/index";
 	}
-	
 }

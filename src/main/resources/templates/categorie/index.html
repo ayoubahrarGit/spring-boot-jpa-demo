@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:th="http://www.thymeleaf.org" 
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+  data-layout-decorate="~{fragments/layout}">
+<head>
+  <title>AdminLTE 2 | Starter</title>
+  <link rel="stylesheet" href="/webjars/datatables.net-bs/2.1.1/css/dataTables.bootstrap.min.css">
+</head>
+
+<body>
+
+    <section class="content container-fluid" data-layout-fragment="content">
+
+		
+		
+		<div th:if="${not #lists.isEmpty(categories)}" class="box">
+		  <div class="box-header">
+		    <h3 class="box-title">Categories List</h3>
+		  </div>
+		  <!-- /.box-header -->
+		  <div class="box-body">
+		    <table id="categories-table" class="table table-bordered table-striped">
+		      <thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Label</th>
+			        <th>Description</th>
+			        <th>View</th>
+			        <th>Edit</th>
+			        <th>Delete</th>
+			      </tr>
+		      </thead>
+		      <tbody>
+			      <tr th:each="category : ${categories}">
+			          <td th:text="${category.name}">Name</td>
+			          <td th:text="${category.label}">Label</td>
+			          <td th:text="${category.description}">Description</td>
+			          <td><a th:href="${'/categories/detail/' + category.name}">View</a></td>
+			          <td>Edit</td>
+			          <td>Delete</td>
+			      </tr>
+		      </tbody>
+		      <tfoot>
+		      <tr>
+				<th>Name</th>
+				<th>Label</th>
+				<th>Description</th>
+				<th>View</th>
+				<th>Edit</th>
+				<th>Delete</th>
+		      </tr>
+		      </tfoot>
+		    </table>
+		  </div>
+		  <!-- /.box-body -->
+		</div>
+
+
+
+    </section>
+
+	<th:block layout:fragment="scripts">
+		<script src="/webjars/datatables/1.10.15/js/jquery.dataTables.min.js"></script>
+		<script src="/webjars/datatables.net-bs/2.1.1/js/dataTables.bootstrap.min.js"></script>
+		<script>
+		$(function () {
+		    $('#categories-table').DataTable()
+		})
+		</script>
+	</th:block>
+</body>
+</html>

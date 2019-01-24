@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"   
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,51 +16,42 @@
 </head>
 
 <body class="hold-transition skin-blue layout-boxed">
-<div class="wrapper">
-  <header class="main-header">
-    <a href="/" class="logo">
-      <span class="logo-mini"><b>SBJ</b>D</span>
-      <span class="logo-lg"><b>SpringBoot/JPA</b> Demo</span>
-    </a>
-
-    <nav class="navbar navbar-static-top" role="navigation">
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-    </nav>
-  </header>
-  <aside class="main-sidebar">
-    <section class="sidebar">
-      <div data-th-replace="fragments/fragments-sidebar-menu :: sidebar-menu"></div>
-    </section>
-  </aside>
-  <div class="content-wrapper">
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
-
-	<div data-layout-fragment="content"></div>
-    
-  </div>
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      Spring-Boot/JPA Demo
-    </div>
-    <strong>&copy; 2019 ENSAT</strong> - GINF3.
-  </footer>
-
-</div>
-<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/js/adminlte.min.js"></script>
-<script src="/webjars/fastclick/1.0.6/fastclick.js"></script>
-
+	<div class="wrapper">
+	  <header class="main-header">
+	    <a href="/" class="logo">
+	      <span class="logo-mini"><b>SBJ</b>D</span>
+	      <span class="logo-lg"><b>SpringBoot/JPA</b> Demo</span>
+	    </a>
+	
+	    <nav class="navbar navbar-static-top" role="navigation">
+	      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+	        <span class="sr-only">Toggle navigation</span>
+	      </a>
+	    </nav>
+	  </header>
+	  <aside class="main-sidebar">
+	    <section class="sidebar">
+	      <div data-th-replace="fragments/fragments-sidebar-menu :: sidebar-menu"></div>
+	    </section>
+	  </aside>
+	  <div class="content-wrapper">
+	
+		<div data-layout-fragment="content"></div>
+	    
+	  </div>
+	  <footer class="main-footer">
+	    <div class="pull-right hidden-xs">
+	      Spring-Boot/JPA Demo
+	    </div>
+	    <strong>&copy; 2019 ENSAT</strong> - GINF3.
+	  </footer>
+	
+	</div>
+	
+	<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="/js/adminlte.min.js"></script>
+	<script src="/webjars/fastclick/1.0.6/fastclick.js"></script>
+	<th:block layout:fragment="scripts"></th:block>
 </body>
 </html>

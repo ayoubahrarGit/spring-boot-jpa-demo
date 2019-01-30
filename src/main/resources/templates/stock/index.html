@@ -19,7 +19,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form th:object="${stock}" th:action="@{/produits/save}" method="post">
+            <form th:object="${stock}" th:action="@{/stocks/save}" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <label>Entrepôt</label>
@@ -51,7 +51,7 @@
                 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Qté</label>
-                  <input type="number" class="form-control">
+                  <input type="number" class="form-control" th:field="*{quantite}">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -82,8 +82,8 @@
 		      </thead>
 		      <tbody>
 			      <tr th:each="stock : ${stocks}">
-			          <td th:text="${stock.entrepot.name}">entrepot</td>
-			          <td th:text="${stock.produit.name}">produit</td>
+			          <td th:text="${stock.entrepot}">entrepot</td>
+			          <td th:text="${stock.produit}">produit</td>
 			          <td th:text="${stock.quantite}">quantite</td>
 			          
 			          <td>

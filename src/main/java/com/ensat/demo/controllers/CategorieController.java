@@ -25,6 +25,7 @@ public class CategorieController {
 	
 	@GetMapping("/categories")
 	public String Categories(Model model){
+		System.out.println("********************* "+categorieService.count());
 		model.addAttribute("categories",categorieService.all());
 		return "categorie/index";
 	}

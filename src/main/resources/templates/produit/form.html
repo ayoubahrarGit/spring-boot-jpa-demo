@@ -13,7 +13,7 @@
 		    <h3 class="box-title">Produit</h3>
 		  </div>
 		  <!-- /.box-header -->
-		  <form class="form-horizontal" th:object="${stock}" th:action="@{/stocks/save}" method="post">
+		  <form class="form-horizontal" th:object="${produitVB}" th:action="@{/produits/save}" method="post">
 		  		<div class="box-body">
 				
 					<input type="hidden" th:field="*{idproduit}"/>
@@ -30,9 +30,8 @@
 		                    <input type="text" class="form-control" th:field="*{label}"/>
 		                </div>
 		            </div>
-		            
-		            
-		            
+
+
 		            
 		            <div class="form-group">
 		                <label class="col-sm-2 control-label">Category</label>

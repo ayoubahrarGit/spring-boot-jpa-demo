@@ -43,4 +43,7 @@ public class EntrepotService implements ICrudService<Entrepot> {
 		return entrepotRepository.findAll();
 	}
 
+	public int count(){
+		return (int) entrepotRepository.count();
+	}
 }

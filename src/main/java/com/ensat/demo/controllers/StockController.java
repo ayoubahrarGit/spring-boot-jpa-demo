@@ -26,6 +26,11 @@ public class StockController {
 	@Autowired
 	EntrepotService entrepotService = new EntrepotService();
 	
+//
+//	public void setStockService(StockService stockService) {
+//		this.stockService = stockService;
+//	}	
+
 	@Autowired
 	ProduitService produitService = new ProduitService();
 //	
@@ -72,4 +77,5 @@ public class StockController {
 		stockService.delete(stockService.find(Integer.parseInt(id)).get());
 		return "redirect:/stocks";
 	}
+	
 }

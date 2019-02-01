@@ -24,7 +24,7 @@
                 <div class="form-group">
                   <label>Entrepôt</label>
                     <div th:if="${entrepotList != null and not #lists.isEmpty(entrepotList)}">
-			            <select class="form-control" th:field="*{entrepot}">
+			            <select id="select_entrepot" class="form-control" th:field="*{entrepot}">
 	                    	<option th:each="entrepotItem : ${entrepotList}" 
 	                    			th:value="${entrepotItem.name}" 
 	                    			th:text="${entrepotItem.name}" />
@@ -38,7 +38,7 @@
                 <div class="form-group">
                   <label>Produit</label>
                   <div th:if="${produitList != null and not #lists.isEmpty(produitList)}">
-			            <select class="form-control" th:field="*{produit}">
+			            <select id="select_produit" class="form-control" th:field="*{produit}">
 	                    	<option th:each="produitItem : ${produitList}" 
 	                    			th:value="${produitItem.name}" 
 	                    			th:text="${produitItem.label}" />
@@ -51,7 +51,7 @@
                 
                 <div class="form-group">
                   <label for="exampleInputPassword1">Qté</label>
-                  <input type="number" class="form-control" th:field="*{quantite}">
+                  <input id="input_quatity" type="number" min=0 class="form-control" th:field="*{quantite}">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -87,9 +87,9 @@
 			          <td th:text="${stock.quantite}">quantite</td>
 			          
 			          <td>
-			          <form th:action="${'/stocks/delete/' + stock.idstock}" th:method="delete" class="inline-table-form">
+			          <form th:action="${'/stocks/delete/' + stock.idstock}" th:method="delete" class="delete_form inline-table-form">
 			          	<input type="hidden" name="id" value="${stock.idstock}"/>
-			          	<button type="submit" class="btn btn-danger">D</button>
+			          	<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
 			          </form></td>
 			      </tr>
 		      </tbody>
@@ -117,6 +117,30 @@
 		$(function () {
 		    $('#produits-table').DataTable()
 		})
+		</script>
+		<script>
+		function load_quatite() {
+			$("#input_quatity").val("0");
+			
+			var entrepot = $("#select_entrepot").val();
+			var produit = $("#select_produit").val();
+			
+			$.ajax({
+			    url: "/stocks/api/"+entrepot+"/"+produit,
+			    dataType: 'json',
+			    success: function(response){
+			    	console.log(response.quantite);
+			    	$("#input_quatity").val(response.quantite);
+			    },
+			    error: function (request, status, error) {
+			        console.log(status);
+			    }
+			});
+		}
+		load_quatite();
+		$('select').on('change', function() {
+			load_quatite();
+		});
 		</script>
 	</th:block>
 </body>

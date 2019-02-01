@@ -39,11 +39,11 @@
 			          <td th:text="${produit.label}">Label</td>
 			          <td th:text="${produit.categorie.label}">Catégorie</td>
 			          <td th:text="${produit.description}">Description</td>
-			          <td><a th:href="${'/produits/detail/' + produit.name}"><button class="btn btn-primary">V</button></a>
-			          <a th:href="${'/produits/update/' + produit.name}"><button class="btn btn-warning">E</button></a>
-			          <form th:action="${'/produits/delete/' + produit.name}" th:method="delete" class="inline-table-form">
+			          <td><a th:href="${'/produits/detail/' + produit.name}"><button class="btn btn-primary"><i class="fa fa-eye"></i></button></a>
+			          <a th:href="${'/produits/update/' + produit.name}"><button class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></button></a>
+			          <form th:action="${'/produits/delete/' + produit.name}" th:method="delete" class="delete_form inline-table-form">
 			          	<input type="hidden" name="name" value="${produit.name}"/>
-			          	<button type="submit" class="btn btn-danger">D</button>
+			          	<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
 			          </form></td>
 			      </tr>
 		      </tbody>

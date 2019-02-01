@@ -15,6 +15,8 @@ public interface StockRepository extends CrudRepository<Stock, Integer> {
 	 Integer getSum();
 	 
 	 public boolean existsByEntrepotAndProduit(Entrepot e,Produit p);
+
+	 //public boolean existsByProduit(Produit e);	 
 	 
 	 public Stock findByEntrepotAndProduit(Entrepot e,Produit p);
 

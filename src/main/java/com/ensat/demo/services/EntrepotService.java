@@ -37,10 +37,17 @@ public class EntrepotService implements ICrudService<Entrepot> {
 	public Optional<Entrepot> find(String name) {
 		return entrepotRepository.findByName(name);
 	}
-
+	
+	public boolean exist(String name){
+		return entrepotRepository.existsByName(name);
+	}
+	
 	@Override
 	public Iterable<Entrepot> all() {
 		return entrepotRepository.findAll();
 	}
 
+	public int count(){
+		return (int) entrepotRepository.count();
+	}
 }

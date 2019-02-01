@@ -42,16 +42,30 @@ public class ProduitController {
 		model.addAttribute("produitVB", new ProduitViewBean());
 		ArrayList<Categorie> lCat = (ArrayList<Categorie>) categorieService.all();
 		model.addAttribute("categorieList", lCat);
+		model.addAttribute("option","saveAdd");
 		return "produit/form";
 	}
 	
-	@PostMapping("produits/save")
-	public String addProduit(ProduitViewBean produitVB){
+	@PostMapping("produits/saveAdd")
+	public String addProduit(ProduitViewBean produitVB,Model model){
 		Produit p = produitVB.toProduit();
-		Categorie c = categorieService.find(produitVB.getCategorie()).get();
-		p.setCategorie(c);
-		produitService.save(p);
-		return "redirect:/produits";
+		if(!produitService.exist(p.getName())){
+			Categorie c = categorieService.find(produitVB.getCategorie()).get();
+			p.setCategorie(c);
+			produitService.save(p);
+			return "redirect:/produits"; 
+		}else{
+			model.addAttribute("errorMessage", "Nom produit deja existant");
+			return "produit/error";
+		}
+	}
+	@PostMapping("produits/saveUpdate")
+	public String updateProduit(ProduitViewBean produitVB,Model model){
+		Produit p = produitVB.toProduit();
+			Categorie c = categorieService.find(produitVB.getCategorie()).get();
+			p.setCategorie(c);
+			produitService.save(p);
+			return "redirect:/produits"; 		
 	}
 	@GetMapping("/produits/update/{name}")
 	public String updateProduit(@PathVariable String name ,Model model){
@@ -59,7 +73,7 @@ public class ProduitController {
 		Produit p = produitService.find(name).get();
 		pVB.fromProduit(p);
 		model.addAttribute("produitVB", pVB);
-		
+		model.addAttribute("option", "saveUpdate");
 		ArrayList<Categorie> lCat = (ArrayList<Categorie>) categorieService.all();
 		model.addAttribute("categorieList", lCat);
 		return "produit/form";

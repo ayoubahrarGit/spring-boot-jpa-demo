@@ -1,13 +1,12 @@
 package com.ensat.demo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ensat.demo.entities.Entrepot;
 import com.ensat.demo.entities.Produit;
-import com.ensat.demo.repositories.EntrepotRepository;
 import com.ensat.demo.repositories.ProduitRepository;
 
 @Service
@@ -40,9 +39,16 @@ public class ProduitService implements ICrudService<Produit>{
 	public Optional<Produit> find(String name) {
 		return produitRepository.findByName(name);
 	}
-
+	public boolean exist(String name){
+		return produitRepository.existsByName(name);
+	}
 	@Override
 	public Iterable<Produit> all() {
 		return produitRepository.findAll();
+	}
+	
+	public int count(){
+		return (int) produitRepository.count();
+			
 	}
 }

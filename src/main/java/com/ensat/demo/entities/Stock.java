@@ -14,7 +14,7 @@ public class Stock implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idstock;
 
 	private int quantite;
@@ -63,5 +63,4 @@ public class Stock implements Serializable {
 	public void setProduit(Produit produit) {
 		this.produit = produit;
 	}
-
 }

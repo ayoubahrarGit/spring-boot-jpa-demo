@@ -1,5 +1,7 @@
 package com.ensat.demo.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +38,16 @@ public class CategorieService implements ICrudService<Categorie> {
 	public Optional<Categorie> find(String name) {
 		return categorieRepository.findByName(name);
 	}
-
+	
+	public boolean exist(String name){
+		return categorieRepository.existsByName(name);
+	}
 	@Override
 	public Iterable<Categorie> all() {
 		return categorieRepository.findAll();
 	}
 	
-	
-	
-	
+	public int count(){
+		return (int) categorieRepository.count();		
+	}	
 }

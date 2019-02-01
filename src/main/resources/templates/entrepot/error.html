@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" data-layout-decorate="~{fragments/layout}">
+<head>
+  <title>Error | Entrepot</title>
+</head>
+
+<body>
+
+    <section class="content container-fluid" data-layout-fragment="content">
+    
+      <div class="box">
+        
+        <div class="box-header with-border">
+       	
+       	 <h3 class="box-title">une erreur s'est produite </h3>
+       	 <div class="box-tools">
+                <a href="/entrepots"><button class="btn btn-success" style="padding: 4px 12px;">Index <i class="fa fa-align-justify"></i></button></a>
+            </div>
+         <h2 th:text="${errorMessage}"></h2> 
+        </div>
+        
+      </div>
+
+    </section>
+
+</body>
+</html>

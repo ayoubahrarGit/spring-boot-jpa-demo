@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.ensat.demo.beans.StockViewBean;
 import com.ensat.demo.entities.Entrepot;
 import com.ensat.demo.entities.Produit;
 import com.ensat.demo.entities.Stock;
-import com.ensat.demo.services.CategorieService;
 import com.ensat.demo.services.EntrepotService;
 import com.ensat.demo.services.ProduitService;
 import com.ensat.demo.services.StockService;
@@ -42,8 +42,9 @@ public class StockController {
 
 	@GetMapping("/stocks")
 	public String stocks(Model model){
-		model.addAttribute("stocks",stockService.all());
-		model.addAttribute("stock", new Stock());
+		
+		model.addAttribute("stocks",stockService.toViewBean());
+		model.addAttribute("stock", new StockViewBean());
 		
 		ArrayList<Entrepot> lEntr = (ArrayList<Entrepot>) entrepotService.all();
 		model.addAttribute("entrepotList", lEntr);
@@ -55,14 +56,16 @@ public class StockController {
 	}
 	
 	@PostMapping("stocks/save")
-	public String editStock(Stock stock){
-		stockService.save(stock);
-		return "redirect:/stocks";
+	public String editStock(StockViewBean stockView){
+		Stock s = stockService.toEntity(stockView);
+		stockService.save(s);
+		return "redirect:/stocks";		
 	}
+	
 	
 	@DeleteMapping("/stocks/delete/{id}")
 	public String deletestock(@PathVariable String id){
 		stockService.delete(stockService.find(Integer.parseInt(id)).get());
-		return "stock/index";
+		return "redirect:/stocks";
 	}
 }

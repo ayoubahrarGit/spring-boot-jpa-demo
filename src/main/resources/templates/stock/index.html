@@ -4,7 +4,7 @@
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
   data-layout-decorate="~{fragments/layout}">
 <head>
-  <title>AdminLTE 2 | Starter</title>
+  <title>Index | Stock</title>
   <link rel="stylesheet" href="/webjars/datatables.net-bs/2.1.1/css/dataTables.bootstrap.min.css">
 </head>
 
@@ -27,7 +27,7 @@
 			            <select class="form-control" th:field="*{entrepot}">
 	                    	<option th:each="entrepotItem : ${entrepotList}" 
 	                    			th:value="${entrepotItem.name}" 
-	                    			th:text="${entrepotItem.ville}" />
+	                    			th:text="${entrepotItem.name}" />
 	                    </select>
                     </div>
                    	<div th:if="${entrepotList == null or entrepotList.isEmpty()}">

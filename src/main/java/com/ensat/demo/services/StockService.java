@@ -59,6 +59,13 @@ public class StockService implements ICrudService<Stock> {
 		return stockRepository.findAll();
 	}
 	
+	public boolean exist(Entrepot e,Produit p){
+		if(stockRepository.existsByEntrepot(e)==true && stockRepository.existsByProduit(p))
+			return true;
+		else 
+			return false;
+	}
+	
 	public List<StockViewBean> toViewBean(){
 		List<StockViewBean> lsv=new ArrayList<>();
 		List<Stock> ls = (List<Stock>) this.all();
@@ -70,12 +77,17 @@ public class StockService implements ICrudService<Stock> {
 	public Stock toEntity(StockViewBean sv){
 		Entrepot e = entrepotRepository.findByName(sv.getEntrepot()).get() ;
 		Produit p = produitRepository.findByName(sv.getProduit()).get();
-		Stock s = new Stock();
-		s.setEntrepot(e);
-		s.setProduit(p);
-		s.setQuantite(sv.getQuantite());
-		return s;
-		
+		if(exist(e, p)){
+			Stock s = stockRepository.findByEntrepotAndProduit(e,p);
+			s.setQuantite(sv.getQuantite());
+			return s;
+		}else{
+			Stock s = new Stock();
+			s.setEntrepot(e);
+			s.setProduit(p);
+			s.setQuantite(sv.getQuantite());
+			return s;
+		}			
 	}
 	
 	public StockViewBean toView(Stock s){

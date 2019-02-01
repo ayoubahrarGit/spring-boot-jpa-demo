@@ -57,9 +57,11 @@ public class StockController {
 	
 	@PostMapping("stocks/save")
 	public String editStock(StockViewBean stockView){
-		stockService.save(stockService.toEntity(stockView));
-		return "redirect:/stocks";
+		Stock s = stockService.toEntity(stockView);
+		stockService.save(s);
+		return "redirect:/stocks";		
 	}
+	
 	
 	@DeleteMapping("/stocks/delete/{id}")
 	public String deletestock(@PathVariable String id){

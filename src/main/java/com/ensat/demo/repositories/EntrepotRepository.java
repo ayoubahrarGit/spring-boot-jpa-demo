@@ -9,4 +9,5 @@ import com.ensat.demo.entities.Entrepot;
 public interface EntrepotRepository extends CrudRepository<Entrepot, Integer> {
 	
 	public Optional<Entrepot> findByName(String name);
+	public boolean existsByName(String name);
 }

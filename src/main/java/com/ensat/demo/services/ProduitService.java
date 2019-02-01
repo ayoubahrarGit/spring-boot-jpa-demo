@@ -39,7 +39,9 @@ public class ProduitService implements ICrudService<Produit>{
 	public Optional<Produit> find(String name) {
 		return produitRepository.findByName(name);
 	}
-
+	public boolean exist(String name){
+		return produitRepository.existsByName(name);
+	}
 	@Override
 	public Iterable<Produit> all() {
 		return produitRepository.findAll();

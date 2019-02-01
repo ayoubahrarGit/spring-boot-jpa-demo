@@ -38,7 +38,10 @@ public class CategorieService implements ICrudService<Categorie> {
 	public Optional<Categorie> find(String name) {
 		return categorieRepository.findByName(name);
 	}
-
+	
+	public boolean exist(String name){
+		return categorieRepository.existsByName(name);
+	}
 	@Override
 	public Iterable<Categorie> all() {
 		return categorieRepository.findAll();

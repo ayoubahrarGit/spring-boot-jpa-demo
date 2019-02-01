@@ -32,18 +32,37 @@ public class CategorieController {
 	@GetMapping("/categories/add")
 	public String categorieAdd(Model model){
 		model.addAttribute("categorie", new Categorie());
+		model.addAttribute("option", "saveAdd");
 		return "categorie/form";
 	}
 	
-	@PostMapping("categories/save")
-	public String addCategorie(Categorie categorie){
+	@PostMapping("categories/saveAdd")
+	public String addCategorie(Categorie categorie,Model model){
 		// TODO : check if name exists
-		categorieService.save(categorie);
-		return "redirect:/categories";
+		System.out.println(categorie.getName());
+		//Categorie c = categorieService.find(categorie.getName()).get();
+
+		if(categorieService.exist(categorie.getName())==false){
+			categorieService.save(categorie);
+			return "redirect:/categories";
+		}
+		else{
+			model.addAttribute("errorMessage", "Nom categorie deja existant");
+			return "categorie/error";
+		}
+	}
+	@PostMapping("categories/saveUpdate")
+	public String updateCategorie(Categorie categorie,Model model){
+		System.out.println(categorie.getName());
+		//Categorie c = categorieService.find(categorie.getName()).get();
+			categorieService.save(categorie);
+			return "redirect:/categories";
+		
 	}
 	@GetMapping("/categories/update/{name}")
 	public String updateCategorie(@PathVariable String name ,Model model){
 		model.addAttribute("categorie",categorieService.find(name).get());
+		model.addAttribute("option","saveUpdate");
 		return "categorie/form";
 	}
 	@GetMapping("/categories/detail/{name}")

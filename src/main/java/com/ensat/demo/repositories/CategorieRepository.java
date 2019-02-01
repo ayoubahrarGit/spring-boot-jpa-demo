@@ -10,4 +10,5 @@ public interface CategorieRepository extends CrudRepository<Categorie, Integer> 
 	
 	
 	public Optional<Categorie> findByName(String name);
+	public boolean existsByName(String name);
 }

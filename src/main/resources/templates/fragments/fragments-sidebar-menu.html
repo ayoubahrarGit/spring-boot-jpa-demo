@@ -1,24 +1,10 @@
 <ul class="sidebar-menu" data-widget="tree" data-th-fragment="sidebar-menu">
   
   <li class="header">NAVIGATION</li>
-  <li class="active"><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-  <li><a href="/categories"><i class="fa fa-link"></i> <span>Categories</span></a></li>
-  <li><a href="/produits"><i class="fa fa-link"></i> <span>Produits</span></a></li>
-  <li><a href="/entrepots"><i class="fa fa-link"></i> <span>Entrepots</span></a></li>
-  <li><a href="/stocks"><i class="fa fa-link"></i> <span>Stock</span></a></li>
-  
-  <li class="header">CATEGORIES</li>
-  <li><a href="#"><i class="fa fa-link"></i> <span>Another-Link</span></a></li>
-  <li class="treeview">
-    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-      <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-    </a>
-    <ul class="treeview-menu">
-      <li><a href="#">Link in level 2</a></li>
-      <li><a href="#">Link in level 2</a></li>
-    </ul>
-  </li>
+  <li th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+  <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/categories') ? 'active':''}"><a href="/categories"><i class="fa fa-link"></i> <span>Categories</span></a></li>
+  <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/produits') ? 'active':''}"><a href="/produits"><i class="fa fa-link"></i> <span>Produits</span></a></li>
+  <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/entrepots') ? 'active':''}"><a href="/entrepots"><i class="fa fa-link"></i> <span>Entrepots</span></a></li>
+  <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/stocks') ? 'active':''}"><a href="/stocks"><i class="fa fa-link"></i> <span>Stock</span></a></li>
   
 </ul>

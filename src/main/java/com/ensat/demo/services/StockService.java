@@ -53,6 +53,13 @@ public class StockService implements ICrudService<Stock> {
 	public Optional<Stock> find(int id) {
 		return stockRepository.findById(id);
 	}
+	
+	public Stock find(String entrepot, String produit) {
+		Entrepot e = entrepotRepository.findByName(entrepot).get();
+		Produit p = produitRepository.findByName(produit).get();
+		Stock s = stockRepository.findByEntrepotAndProduit(e,p);
+		return s;
+	}
 
 	@Override
 	public Iterable<Stock> all() {
@@ -60,10 +67,8 @@ public class StockService implements ICrudService<Stock> {
 	}
 	
 	public boolean exist(Entrepot e,Produit p){
-		if(stockRepository.existsByEntrepot(e)==true && stockRepository.existsByProduit(p))
-			return true;
-		else 
-			return false;
+		return stockRepository.existsByEntrepotAndProduit(e, p);
+			
 	}
 	
 	public List<StockViewBean> toViewBean(){

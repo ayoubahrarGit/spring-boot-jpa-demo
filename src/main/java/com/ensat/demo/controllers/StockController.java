@@ -28,7 +28,7 @@ public class StockController {
 	@Autowired
 	public void setStockService(StockService stockService) {
 		this.stockService = stockService;
-	}
+	}	
 
 	@Autowired
 	public void setEntrepotService(EntrepotService entrepotService) {
@@ -68,4 +68,5 @@ public class StockController {
 		stockService.delete(stockService.find(Integer.parseInt(id)).get());
 		return "redirect:/stocks";
 	}
+	
 }

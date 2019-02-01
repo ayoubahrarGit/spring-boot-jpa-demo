@@ -37,11 +37,11 @@
 			          <td th:text="${category.name}">Name</td>
 			          <td th:text="${category.label}">Label</td>
 			          <td th:text="${category.description}">Description</td>
-			          <td><a th:href="${'/categories/detail/' + category.name}"><button class="btn btn-primary">V</button></a>
-			          <a th:href="${'/categories/update/' + category.name}"><button class="btn btn-warning">E</button></a>
-			          <form th:action="${'/categories/delete/' + category.name}" th:method="delete" class="inline-table-form">
+			          <td><a th:href="${'/categories/detail/' + category.name}"><button class="btn btn-primary"><i class="fa fa-eye"></i></button></a>
+			          <a th:href="${'/categories/update/' + category.name}"><button class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></button></a>
+			          <form th:action="${'/categories/delete/' + category.name}" th:method="delete" class="delete_form inline-table-form">
 			          	<input type="hidden" name="name" value="${categorie.name}"/>
-			          	<button type="submit" class="btn btn-danger">D</button>
+			          	<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
 			          </form></td>
 			      </tr>
 		      </tbody>

@@ -12,8 +12,8 @@ public interface StockRepository extends CrudRepository<Stock, Integer> {
 	 @Query("SELECT SUM(s.quantite) from Stock s")
 	 Integer getSum();
 	 
-	 public boolean existsByEntrepot(Entrepot e);
-	 public boolean existsByProduit(Produit e);
+	 public boolean existsByEntrepotAndProduit(Entrepot e,Produit p);
+	 //public boolean existsByProduit(Produit e);
 	 
 	 public Stock findByEntrepotAndProduit(Entrepot e,Produit p);
 

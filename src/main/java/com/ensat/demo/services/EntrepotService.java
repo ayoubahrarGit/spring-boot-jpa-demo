@@ -3,6 +3,7 @@ package com.ensat.demo.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.ensat.demo.entities.Entrepot;
@@ -10,12 +11,12 @@ import com.ensat.demo.repositories.EntrepotRepository;
 
 @Service
 public class EntrepotService implements ICrudService<Entrepot> {
-
-	private EntrepotRepository entrepotRepository;
 	@Autowired
-	public void setEntrepotRepository(EntrepotRepository entrepotRepository) {
-		this.entrepotRepository = entrepotRepository;
-	}
+	private EntrepotRepository entrepotRepository;
+//	@Autowired
+//	public void setEntrepotRepository(EntrepotRepository entrepotRepository) {
+//		this.entrepotRepository = entrepotRepository;
+//	}
 
 	
 	@Override

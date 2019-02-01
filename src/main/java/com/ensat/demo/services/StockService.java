@@ -17,27 +17,29 @@ import com.ensat.demo.repositories.StockRepository;
 
 @Service
 public class StockService implements ICrudService<Stock> {
-
+	
+	@Autowired
 	private StockRepository stockRepository;
 	
+//	@Autowired
+//	public void setStockRepository(StockRepository stockRepository) {
+//		this.stockRepository = stockRepository;
+//	}
+	
 	@Autowired
-	public void setStockRepository(StockRepository stockRepository) {
-		this.stockRepository = stockRepository;
-	}
-
 	private ProduitRepository produitRepository;
 	
+//	@Autowired
+//	public void setProduitRepository(ProduitRepository produitRepository) {
+//		this.produitRepository = produitRepository;
+//	}
 	@Autowired
-	public void setProduitRepository(ProduitRepository produitRepository) {
-		this.produitRepository = produitRepository;
-	}
-	
 	private EntrepotRepository entrepotRepository;
 	
-	@Autowired
-	public void setEntrepotRepository(EntrepotRepository entrepotRepository) {
-		this.entrepotRepository = entrepotRepository;
-	}
+//	@Autowired
+//	public void setEntrepotRepository(EntrepotRepository entrepotRepository) {
+//		this.entrepotRepository = entrepotRepository;
+//	}
 
 	@Override
 	public void save(Stock entity) {
@@ -60,7 +62,7 @@ public class StockService implements ICrudService<Stock> {
 	}
 	
 	public boolean exist(Entrepot e,Produit p){
-		if(stockRepository.existsByEntrepot(e)==true && stockRepository.existsByProduit(p))
+		if(stockRepository.existsByEntrepotAndProduit(e, p)==true)
 			return true;
 		else 
 			return false;

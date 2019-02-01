@@ -12,31 +12,31 @@ import com.ensat.demo.services.StockService;
 
 @Controller
 public class HomeController {
-
+	@Autowired
 	CategorieService categorieService = new CategorieService();
+//	@Autowired
+//	public void setCategorieService(CategorieService categorieService) {
+//		this.categorieService = categorieService;
+//	}
 	@Autowired
-	public void setCategorieService(CategorieService categorieService) {
-		this.categorieService = categorieService;
-	}
-
 	ProduitService produitService = new ProduitService();
+//	@Autowired
+//	public void setProduitService(ProduitService produitService) {
+//		this.produitService = produitService;
+//	}
 	@Autowired
-	public void setProduitService(ProduitService produitService) {
-		this.produitService = produitService;
-	}
-	
 	StockService stockService = new StockService();
 	
+//	@Autowired
+//	public void setStockService(StockService stockService) {
+//		this.stockService = stockService;
+//	}
 	@Autowired
-	public void setStockService(StockService stockService) {
-		this.stockService = stockService;
-	}
-	
 	EntrepotService entrepotService = new EntrepotService();
-	@Autowired
-	public void setEntrepotService(EntrepotService entrepotService) {
-		this.entrepotService = entrepotService;
-	}
+//	@Autowired
+//	public void setEntrepotService(EntrepotService entrepotService) {
+//		this.entrepotService = entrepotService;
+//	}
 	
 	
 	

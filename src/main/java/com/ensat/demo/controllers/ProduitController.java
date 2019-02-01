@@ -19,18 +19,21 @@ import com.ensat.demo.services.ProduitService;
 
 @Controller
 public class ProduitController {
-	ProduitService produitService = new ProduitService();
-	CategorieService categorieService = new CategorieService();
-
 	@Autowired
-	public void setProduitService(ProduitService produitService) {
-		this.produitService = produitService;
-	}
+	ProduitService produitService = new ProduitService();
 	
 	@Autowired
-	public void setCategorieService(CategorieService categorieService) {
-		this.categorieService = categorieService;
-	}
+	CategorieService categorieService = new CategorieService();
+
+//	@Autowired
+//	public void setProduitService(ProduitService produitService) {
+//		this.produitService = produitService;
+//	}
+//	
+//	@Autowired
+//	public void setCategorieService(CategorieService categorieService) {
+//		this.categorieService = categorieService;
+//	}
 
 	@GetMapping("/produits")
 	public String Produits(Model model){

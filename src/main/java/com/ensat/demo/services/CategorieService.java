@@ -13,12 +13,12 @@ import com.ensat.demo.repositories.CategorieRepository;
 @Service
 public class CategorieService implements ICrudService<Categorie> {
 	
-	
-	private CategorieRepository categorieRepository;
 	@Autowired
-		public void setCategorieRepository(CategorieRepository categorieRepository) {
-		this.categorieRepository = categorieRepository;
-	}
+	private CategorieRepository categorieRepository;
+//	@Autowired
+//		public void setCategorieRepository(CategorieRepository categorieRepository) {
+//		this.categorieRepository = categorieRepository;
+//	}
 
 	@Override
 	public void save(Categorie entity) {

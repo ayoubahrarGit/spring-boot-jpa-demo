@@ -20,25 +20,29 @@ import com.ensat.demo.services.StockService;
 
 @Controller
 public class StockController {
-	
+	@Autowired
 	StockService stockService = new StockService();
-	EntrepotService entrepotService = new EntrepotService();
-	ProduitService produitService = new ProduitService();
 	
 	@Autowired
-	public void setStockService(StockService stockService) {
-		this.stockService = stockService;
-	}
-
+	EntrepotService entrepotService = new EntrepotService();
+	
 	@Autowired
-	public void setEntrepotService(EntrepotService entrepotService) {
-		this.entrepotService = entrepotService;
-	}
+	ProduitService produitService = new ProduitService();
+//	
+//	@Autowired
+//	public void setStockService(StockService stockService) {
+//		this.stockService = stockService;
+//	}
+//
+//	@Autowired
+//	public void setEntrepotService(EntrepotService entrepotService) {
+//		this.entrepotService = entrepotService;
+//	}
 
-	@Autowired
-	public void setProduitService(ProduitService produitService) {
-		this.produitService = produitService;
-	}
+//	@Autowired
+//	public void setProduitService(ProduitService produitService) {
+//		this.produitService = produitService;
+//	}
 
 	@GetMapping("/stocks")
 	public String stocks(Model model){

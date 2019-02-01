@@ -11,13 +11,13 @@ import com.ensat.demo.repositories.ProduitRepository;
 
 @Service
 public class ProduitService implements ICrudService<Produit>{
-	
+	@Autowired
 	private ProduitRepository produitRepository;
 	
-	@Autowired
-	public void setProduitRepository(ProduitRepository productRepository) {
-		this.produitRepository = productRepository;
-	}
+//	@Autowired
+//	public void setProduitRepository(ProduitRepository productRepository) {
+//		this.produitRepository = productRepository;
+//	}
 
 	
 	@Override

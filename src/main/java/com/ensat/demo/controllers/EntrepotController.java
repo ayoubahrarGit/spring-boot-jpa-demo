@@ -14,13 +14,13 @@ import com.ensat.demo.services.ProduitService;
 
 @Controller
 public class EntrepotController {
-
+	@Autowired
 	EntrepotService entreportService = new EntrepotService();
 
-	@Autowired
-	public void setEntrepotService(EntrepotService entreportService) {
-		this.entreportService = entreportService;
-	}
+//	@Autowired
+//	public void setEntrepotService(EntrepotService entreportService) {
+//		this.entreportService = entreportService;
+//	}
 	
 	@GetMapping("/entrepots")
 	public String Entrepots(Model model){

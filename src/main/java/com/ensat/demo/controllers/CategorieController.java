@@ -15,13 +15,13 @@ import com.ensat.demo.services.CategorieService;
 
 @Controller
 public class CategorieController {
-	
+	@Autowired
 	CategorieService categorieService = new CategorieService();
 
-	@Autowired
-	public void setCategorieService(CategorieService categorieService) {
-		this.categorieService = categorieService;
-	}
+//	@Autowired
+//	public void setCategorieService(CategorieService categorieService) {
+//		this.categorieService = categorieService;
+//	}
 	
 	@GetMapping("/categories")
 	public String Categories(Model model){
